@@ -20,14 +20,15 @@ const getStyles = makeStyles(theme => ({
   }
 }))
 
-const Form = () => {
+const Form = props => {
   const classes = getStyles()
   return (
-    <form>
+    <form onSubmit={props.onSubmit} className={classes.form}>
       <TextField 
         label='Search Ingredients'
         name='recipeName'
         className={classes.TextField}
+        onChange={e => props.onInputChange(e.target.value)}
         margin='normal'
         variant='outlined'
       />

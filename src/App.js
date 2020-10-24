@@ -18,4 +18,4 @@ export default App;
 //source from
 //https://github.com/paulhklam1122/recipe-app-wmdd-4999-sept-2020
 
-//17분부터 보기
+//24:10

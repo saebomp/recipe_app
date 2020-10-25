@@ -13,6 +13,10 @@ export const getRecipes = async (recipeName) => {
       }
     })
     console.log('response', response)
+
+    const recipes = response.data.hits
+    return recipes
+    
     } 
     catch(error) {
       throw error

@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 
 import Form from '../components/Form';
+import Loading from '../components/Loading';
+import Recipes from '../components/Recipes';
 import {getRecipes} from '../services/api'
 
 class RecipesContainer extends Component {
@@ -18,8 +20,6 @@ class RecipesContainer extends Component {
       isLoading:true
     })
 
-    console.log('fetching recipes')
-  
     getRecipes(recipeName).then(
       recipes => {
         this.setState({
@@ -41,12 +41,14 @@ class RecipesContainer extends Component {
   }
 
   render() {
+    const {isLoading, recipes} = this.state
     return (
     <div>
       <Form
         onInputChange={this.handleInputChange} 
         onSubmit={this.fetchRecipes}
       />
+      {isLoading ? <Loading />: <Recipes recipes={recipes} />}
     </div>
     )
   }

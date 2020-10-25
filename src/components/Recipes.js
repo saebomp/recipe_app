@@ -14,8 +14,11 @@ const Recipes = props => {
   const classes = getStyles()
 
   const getRecipeIdFromUri = uri => {
+    //uri 예 : https://www.edamam.com/ontologies/edamam.owl#recipe_8f69b3fd2002ef80c81ac31b8b92fad6
     const array = uri.split('#')
+    //array =  ["http://www.edamam.com/ontologies/edamam.owl", "recipe_8f69b3fd2002ef80c81ac31b8b92fad6"]
     const id = array[array.length -1]
+    // array에서 두번째 값 가져오겠다는거 
     return id
   }
 

@@ -6,6 +6,7 @@ import Card from '@material-ui/core/Card'
 import CardActions from '@material-ui/core/CardActions'
 import CardHeader from '@material-ui/core/CardHeader'
 import CardMedia from '@material-ui/core/CardMedia'
+import {Link} from 'react-router-dom'
 
 const getStyles = makeStyles(theme => ({
   media: {
@@ -24,7 +25,17 @@ const RecipeCard = props => {
        <CardMedia className={classes.media} image={imageUrl} label={label} />
        <CardActions>
         <Button size='small' color='primary'>
+          <Link
+            to={{
+              pathname:`recipe/${id}`,
+              state:{
+                uri:uri
+              }
+              //https://stackoverflow.com/questions/41736048/what-is-a-state-in-link-component-of-react-router
+            }}
+          >
             Learn More
+          </Link>
         </Button>
       </CardActions>
     </Card>

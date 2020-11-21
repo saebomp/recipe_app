@@ -12,6 +12,13 @@ const getStyles = makeStyles(theme => ({
   media: {
     height: 0,
     paddingTop:'58.25%' //16.9
+  },
+  line: {
+    lineHeight:'1.5em',
+    height:'4em'
+  },
+  center: {
+    margin:'0 auto'
   }
 }))
 
@@ -21,10 +28,13 @@ const RecipeCard = props => {
 
   return(
     <Card key={key}>
-       <CardHeader title={label} subheader={source} />
+       <CardHeader title={label} subheader={source} className={classes.line}/>
        <CardMedia className={classes.media} image={imageUrl} label={label} />
        <CardActions>
-        <Button size='small' color='primary'>
+        <Button 
+          size='small' 
+          color='primary'
+          className={classes.center}>
           <Link
             to={{
               pathname:`recipe/${id}`,

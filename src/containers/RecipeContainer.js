@@ -26,7 +26,6 @@ class RecipeContainer extends Component {
     })
   }
 
-
   render() {
     const {isLoading, recipe} = this.state
     const {label, image, source, url} = recipe

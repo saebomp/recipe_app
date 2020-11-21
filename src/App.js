@@ -16,5 +16,3 @@ export default App;
 
 //source from
 //https://github.com/paulhklam1122/recipe-app-wmdd-4999-sept-2020
-
-//24:10

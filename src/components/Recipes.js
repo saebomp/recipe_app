@@ -6,8 +6,9 @@ import RecipeCard from './RecipeCard'
 
 const getStyles = makeStyles(theme => ({
   root: {
-    margin: '5em 0'
-  }
+    margin: '5em 0',
+    width:'100%'
+  },
 }))
 
 const Recipes = props => {
@@ -28,7 +29,7 @@ const Recipes = props => {
         {props.recipes.map(recipe => {
           const {uri,label,image,source} = recipe.recipe
           return (
-            <Grid item xs={3}>
+            <Grid item md={4} sm={6} xs={12}>
               <RecipeCard
                 key={getRecipeIdFromUri(uri)}
                 id={getRecipeIdFromUri(uri)}

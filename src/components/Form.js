@@ -7,7 +7,8 @@ import TextField from '@material-ui/core/TextField'
 const getStyles = makeStyles(theme => ({
   button:{
     margin:theme.spacing(2),
-    marginTop:'25px'
+    marginTop:'25px',
+    padding:'15px'
   },
   form: {
     display:'flex',

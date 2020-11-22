@@ -9,15 +9,28 @@ import CardActions from '@material-ui/core/CardActions'
 import CardContent from '@material-ui/core/CardContent'
 import CardMedia from '@material-ui/core/CardMedia'
 import Typography from '@material-ui/core/Typography'
+import Table from '@material-ui/core/Table';
+import TableBody from '@material-ui/core/TableBody';
+import TableCell from '@material-ui/core/TableCell';
+import TableContainer from '@material-ui/core/TableContainer';
+import TableHead from '@material-ui/core/TableHead';
+import TableRow from '@material-ui/core/TableRow';
+import Paper from '@material-ui/core/Paper';
 
 const getStyles = makeStyles(theme => ({
   root: {
     marginTop: '5em'
+  },
+  center: {
+    margin:'0 auto'
   }
 }))
 
-const Recipe = ({ label, imageUrl, source, sourceUrl }) => {
+const Recipe = ({ label, imageUrl, source, sourceUrl,ingredients, calories, totalNutrients }) => {
   const classes = getStyles()
+  // console.log(totalNutrients)
+
+  
   return (
   <Container fixed className={classes.root}>
     {label && (
@@ -36,14 +49,44 @@ const Recipe = ({ label, imageUrl, source, sourceUrl }) => {
               {label}
             </Typography>
             <Typography variant='body2' color='textSecondary' component='p'>
-              Source: {source}
+              <b>Source:</b> {source}
             </Typography>
             <Typography variant='body2' color='textSecondary' component='p'>
-              Website: {sourceUrl}
+              <b>Website:</b> <a href={sourceUrl} target="_blank">{sourceUrl}</a>
             </Typography>
+            <Typography variant='body2' color='textSecondary' component='p'>
+              <b>ingredients:</b> 
+              {ingredients.map( (list) => (
+              <div>{list.text}</div>
+              ))}
+            </Typography>
+            <TableContainer component={Paper} style={{marginTop:'20px'}}>
+            <Table className={classes.table} aria-label="simple table">
+              <TableHead>
+                <TableRow>
+                  <TableCell>Energy</TableCell>
+                  <TableCell align="right">Fat&nbsp;(g)</TableCell>
+                  <TableCell align="right">Carbs&nbsp;(g)</TableCell>
+                  <TableCell align="right">Protein&nbsp;(g)</TableCell>
+                </TableRow>
+              </TableHead>
+              <TableBody>
+                <TableRow>
+                  <TableCell component="th" scope="row">
+                  {calories}
+                  </TableCell>
+                  {Object.keys(totalNutrients).map((key) => (
+                  <TableCell align="right">{totalNutrients[key].label}</TableCell>
+                  ))}
+                  <TableCell align="right">{source}</TableCell>
+                  <TableCell align="right">{source}</TableCell>
+                </TableRow>
+              </TableBody>
+            </Table>
+          </TableContainer>
           </CardContent>
           <CardActions>
-            <Button size='small' color='primary'>
+            <Button size='small' color='primary' className={classes.center}>
               <Link
                 to={{
                   pathname: '/'
@@ -60,3 +103,5 @@ const Recipe = ({ label, imageUrl, source, sourceUrl }) => {
 }
 
 export default Recipe;
+
+//https://developer.edamam.com/edamam-recipe-api-demo

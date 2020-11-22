@@ -28,13 +28,16 @@ class RecipeContainer extends Component {
 
   render() {
     const {isLoading, recipe} = this.state
-    const {label, image, source, url} = recipe
+    const {label, image, source, url, ingredients, calories, totalNutrients} = recipe
     return <div>
       {isLoading ? (<Loading />) : (<Recipe 
       label={label}
       imageUrl={image}
       source={source}
       sourceUrl={url}
+      ingredients={ingredients}
+      calories={calories}
+      totalNutrients={totalNutrients}
       />
       )}
     </div>

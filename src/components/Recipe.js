@@ -12,7 +12,7 @@ import Typography from '@material-ui/core/Typography'
 
 const getStyles = makeStyles(theme => ({
   root: {
-    marginTop: '20em'
+    marginTop: '5em'
   }
 }))
 

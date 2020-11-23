@@ -26,11 +26,10 @@ const getStyles = makeStyles(theme => ({
   }
 }))
 
+
 const Recipe = ({ label, imageUrl, source, sourceUrl,ingredients, calories, totalNutrients }) => {
   const classes = getStyles()
-  // console.log(totalNutrients)
 
-  
   return (
   <Container fixed className={classes.root}>
     {label && (
@@ -64,10 +63,10 @@ const Recipe = ({ label, imageUrl, source, sourceUrl,ingredients, calories, tota
             <Table className={classes.table} aria-label="simple table">
               <TableHead>
                 <TableRow>
-                  <TableCell>Energy</TableCell>
-                  <TableCell align="right">Fat&nbsp;(g)</TableCell>
-                  <TableCell align="right">Carbs&nbsp;(g)</TableCell>
-                  <TableCell align="right">Protein&nbsp;(g)</TableCell>
+                  <TableCell>Energy&nbsp;(kcal)</TableCell>
+                  <TableCell>Fat&nbsp;(g)</TableCell>
+                  <TableCell>Carbs&nbsp;(g)</TableCell>
+                  <TableCell>Protein&nbsp;(g)</TableCell>
                 </TableRow>
               </TableHead>
               <TableBody>
@@ -75,11 +74,9 @@ const Recipe = ({ label, imageUrl, source, sourceUrl,ingredients, calories, tota
                   <TableCell component="th" scope="row">
                   {calories}
                   </TableCell>
-                  {Object.keys(totalNutrients).map((key) => (
-                  <TableCell align="right">{totalNutrients[key].label}</TableCell>
-                  ))}
-                  <TableCell align="right">{source}</TableCell>
-                  <TableCell align="right">{source}</TableCell>
+                  <TableCell>{JSON.stringify(totalNutrients.FAT.quantity)}</TableCell>
+                  <TableCell>{JSON.stringify(totalNutrients.CHOCDF.quantity)}</TableCell>
+                  <TableCell>{JSON.stringify(totalNutrients.PROCNT.quantity)}</TableCell>
                 </TableRow>
               </TableBody>
             </Table>
@@ -105,3 +102,7 @@ const Recipe = ({ label, imageUrl, source, sourceUrl,ingredients, calories, tota
 export default Recipe;
 
 //https://developer.edamam.com/edamam-recipe-api-demo
+
+
+//https://api.edamam.com/search?q=chicken&app_id=d4e82930&app_key=7235ef81dcbab773f3e449828d41d4da
+
